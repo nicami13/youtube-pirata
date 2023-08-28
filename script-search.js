@@ -2,7 +2,7 @@
 //UC8fkwsjcI_MhralEX1g4OBw
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyAJVDZhuAr1kRbL-s9ZVid-9-a_PvYwgE8";
+const API_KEY = "AIzaSyBqzGW-ytXOzHAxHXaGKLGzWIfFzU4GbbM";
 const videosToShow = 17;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;
@@ -38,7 +38,7 @@ const getChannelIcon = (video_data) => {
 
 const makeVideoCard = (data) => {
     videoCardContainer.innerHTML += `
-    <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
+    <div class="video" onclick="location.href = 'channel.html'">
         <img class="h-video"src="img/history.png" class="" alt="">
         <div class="content">
             <div class="info">
@@ -55,6 +55,14 @@ const makeVideoCard = (data) => {
 
     </div>
     `;
+}
+const storeVideoData = (videoId, title) => {
+    const videoData = {
+        videoId: videoId,
+        title: title
+    };
+    console.log(videoData); // Verificar los datos antes de almacenarlos
+    localStorage.setItem('selectedVideo', JSON.stringify(videoData));
 }
 const searchInput = document.querySelector('.b-search');
     const searchBtn = document.querySelector('.button-s');

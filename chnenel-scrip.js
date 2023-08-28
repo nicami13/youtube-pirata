@@ -1,9 +1,11 @@
 //AIzaSyBBSyUz-5cJdhe-EfuRkflcOlvW5xP9RnE
 //UC8fkwsjcI_MhralEX1g4OBw
+const videoReproduce=document.querySelector('.reproduce-container')
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
 const API_KEY = "AIzaSyBqzGW-ytXOzHAxHXaGKLGzWIfFzU4GbbM";
-const videosToShow = 449;
+const videosToShowReproduce = 1;
+const videosToShow=20;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;
 
@@ -36,12 +38,13 @@ const getChannelIcon = (video_data) => {
     });
 }
 
+
 const makeVideoCard = (data) => {
     videoCardContainer.innerHTML += `
-     <div class="video" onclick="storeVideoData('${data.id.videoId}', '${data.snippet.title}')">
-     <a href="channel.html"><img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt=""></a>
+    <div class="video" onclick="storeVideoData('${data.id.videoId}', '${data.snippet.title}')">
+        <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         <div class="content">
-            <a href="#"><img src="${data.channelThumbnail}" class="channel-icon" alt=""></a>
+            <a href="channel.html"><img src="${data.channelThumbnail}" class="channel-icon" alt=""></a>
             <div class="info">
                 <h4 class="title">${data.snippet.title}</h4>
                 <p class="channel-name">${data.snippet.channelTitle}</p>
@@ -50,6 +53,18 @@ const makeVideoCard = (data) => {
     </div>
     `;
 }
+
+// channel.html
+document.addEventListener('DOMContentLoaded', () => {
+    const selectedVideoData = JSON.parse(sessionStorage.getItem('selectedVideo'));
+
+    if (selectedVideoData) {
+        const videoFrame = document.getElementById('videoFrame');
+        videoFrame.src = `https://www.youtube.com/embed/${selectedVideoData.videoId}`;
+        videoFrame.title = selectedVideoData.title;
+    }
+});
+
 
 // search bar
 
@@ -62,4 +77,3 @@ searchBtn.addEventListener('click', () => {
         location.href = searchLink + encodeURIComponent(searchInput.value);
     }
 });
-
