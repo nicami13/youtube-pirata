@@ -53,42 +53,13 @@ const makeVideoCard = (data) => {
 
 // search bar
 
-document.addEventListener('DOMContentLoaded', function() {
-    const searchBtn = document.querySelector('searchBtn');
-    const searchInput = document.querySelector('searchInput');
-    const resultsContainer = document.querySelector('video-container');
-    const channelId = "UC8fkwsjcI_MhralEX1g4OBw"; // Reemplaza con el ID del canal
-    
-    searchBtn.addEventListener('click', () => {
-        const searchQuery = encodeURIComponent(searchInput.value);
-        const apiUrl = `URL_DEL_API_DE_BUSQUEDA?channel=${channelId}&query=${searchQuery}`;
-        
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                resultsContainer.innerHTML = ""; // Limpia resultados anteriores
-                
-                data.forEach(video => {
-                    const videoCard = document.createElement('div');
-                    videoCard.className = 'video-card';
-                    
-                    const thumbnail = document.createElement('img');
-                    thumbnail.src = video.thumbnail;
-                    thumbnail.alt = video.title;
-                    thumbnail.className = 'video-thumbnail';
-                    
-                    const title = document.createElement('h3');
-                    title.textContent = video.title;
-                    
-                    videoCard.appendChild(thumbnail);
-                    videoCard.appendChild(title);
-                    
-                    resultsContainer.appendChild(videoCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error en la solicitud:', error);
-            });
-    });
+const searchInput = document.querySelector('.b-search');
+const searchBtn = document.querySelector('.search-btn');
+const searchLink = "https://www.youtube.com/results?search_query=";
+
+searchBtn.addEventListener('click', () => {
+    if(searchInput.value.length){
+        location.href = searchLink + encodeURIComponent(searchInput.value);
+    }
 });
 

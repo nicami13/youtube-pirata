@@ -49,5 +49,13 @@ const makeVideoCard = (data) => {
         <img src="img/flecha.png" class="icon-2" alt="">
 
     </div>
-    `;
+    `;const searchInput = document.querySelector('.b-search');
+    const searchBtn = document.querySelector('.button-s');
+    const searchLink = "https://www.youtube.com/results?search_query=";
+    
+    searchBtn.addEventListener('click', () => {
+        if(searchInput.value.length){
+            location.href = searchLink + encodeURIComponent(searchInput.value);
+        }
+    });
 }
