@@ -2,7 +2,7 @@
 //UC8fkwsjcI_MhralEX1g4OBw
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyBqzGW-ytXOzHAxHXaGKLGzWIfFzU4GbbM";
+const API_KEY = "AIzaSyC6ENgRfZbe-KleICuYTeTze_0zWQr95HU";
 const videosToShow = 17;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;

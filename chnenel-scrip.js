@@ -3,7 +3,7 @@
 const videoReproduce=document.querySelector('.reproduce-container')
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyBqzGW-ytXOzHAxHXaGKLGzWIfFzU4GbbM";
+const API_KEY = "AIzaSyC6ENgRfZbe-KleICuYTeTze_0zWQr95HU";
 const videosToShowReproduce = 1;
 const videosToShow=20;
 
