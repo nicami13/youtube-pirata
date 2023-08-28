@@ -54,7 +54,9 @@ const makeVideoCard = (data) => {
 
 
     </div>
-    `;const searchInput = document.querySelector('.b-search');
+    `;
+}
+const searchInput = document.querySelector('.b-search');
     const searchBtn = document.querySelector('.button-s');
     const searchLink = "https://www.youtube.com/results?search_query=";
     
@@ -63,4 +65,3 @@ const makeVideoCard = (data) => {
             location.href = searchLink + encodeURIComponent(searchInput.value);
         }
     });
-}
