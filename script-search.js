@@ -2,7 +2,7 @@
 //UC8fkwsjcI_MhralEX1g4OBw
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyC0GyhRxe-DYmppser-Qpp3H33FF25yLfM";
+const API_KEY = "AIzaSyD9nKJIrgIPfIT2vcam4U2B-FP6KglgGB0";
 const videosToShow = 17;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;
@@ -39,14 +39,19 @@ const getChannelIcon = (video_data) => {
 const makeVideoCard = (data) => {
     videoCardContainer.innerHTML += `
     <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
-        <img src="img/history.png" class="" alt="">
+        <img class="h-video"src="img/history.png" class="" alt="">
         <div class="content">
             <div class="info">
                 <h4 class="title">${data.snippet.title}</h4>
             </div>
-            <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         </div>
+        <div class="eMp">
+        <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
+        </div>
+        <div class="ePm">
         <img src="img/flecha.png" class="icon-2" alt="">
+        </div>
+
 
     </div>
     `;const searchInput = document.querySelector('.b-search');

@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 1;
+    z-index: 300;
 }
 
 .b-search {
@@ -42,10 +42,12 @@ body {
 }
 
 .video-container {
+    padding-top: 30px;
     width: 100%;
     padding-left: 0px;
     display: flex;
     flex-wrap: wrap; /* Cambio: Permite que los videos se coloquen debajo si no caben en la misma fila */
+    justify-content: space-around;
     gap: 10px;
 }
 
@@ -73,26 +75,48 @@ body {
 .video {
     height: 50px;
     width: 100%;
-    display: flex;
+    display: grid;
     align-items: center;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    z-index: 22;
+    grid-template-columns: 30px 200px 30px 50px;
+    grid-template-areas: 
+    "a b b b b  c c  d d"
+    ;
 
+}
+/* <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
+<img src="img/history.png" class="" alt="">
+<div class="content">
+    <div class="info">
+        <h4 class="title">${data.snippet.title}</h4>
+    </div>
+    <div class="eMp">
+    <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
+    </div>
+</div>
+<img src="img/flecha.png" class="icon-2" alt=""> */
+.h-video{
+    grid-area:a ;
+}
 .thumbnail {
+
     width: 40px;
     height: 40px;
-    object-fit: cover;
-    position: absolute;
-    z-index: 0;
-    left: 45vh;
+
+}
+.eMp{
+    padding-left: 40px;
+    grid-area: c;
+    margin-right: -200px;
+
+}
+.info{
+    grid-area: b;
 }
 
-.video:hover {
-    background-color: #d8d8d8;
-}
 
 .content {
     width: 100%;
@@ -111,4 +135,10 @@ body {
 .icon-2 {
     height: 20px;
     width: 20px;
+    z-index: 200;
+}
+
+.ePm{
+    margin-left:100px;
+    grid-area: d;
 }

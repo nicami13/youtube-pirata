@@ -2,7 +2,7 @@
 //UC8fkwsjcI_MhralEX1g4OBw
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyC0GyhRxe-DYmppser-Qpp3H33FF25yLfM";
+const API_KEY = "AIzaSyD9nKJIrgIPfIT2vcam4U2B-FP6KglgGB0";
 const videosToShow = 449;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;
@@ -41,7 +41,7 @@ const makeVideoCard = (data) => {
     <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
         <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         <div class="content">
-            <img src="${data.channelThumbnail}" class="channel-icon" alt="">
+            <a href="channel.html"><img src="${data.channelThumbnail}" class="channel-icon" alt=""></a>
             <div class="info">
                 <h4 class="title">${data.snippet.title}</h4>
                 <p class="channel-name">${data.snippet.channelTitle}</p>
