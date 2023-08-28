@@ -168,7 +168,7 @@ body{
     display: none;
 }
 .banner{
-    z-index: 2;
+    z-index: 2000;
     width: 1000px;
 }
 
@@ -191,6 +191,7 @@ body{
 }
 
 .video-container{
+    display: none;
     width: calc(100% -250px);
     margin-top: 500px;
     margin-left: 250px;
@@ -249,10 +250,10 @@ body{
         display: none;
 }
 .video-container{
+    display: none;
     margin-left:-5px;
     width: calc(100%);
     padding-left: 0px;
-    display: flex;
     flex-direction:column ;
 }
 .icon{
