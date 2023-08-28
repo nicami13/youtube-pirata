@@ -1,8 +1,8 @@
-//AIzaSyDSJlCgtlsv4L6Ge49FNjJPxAWy-Y--GNE
+//AIzaSyBBSyUz-5cJdhe-EfuRkflcOlvW5xP9RnE
 //UC8fkwsjcI_MhralEX1g4OBw
 const videoCardContainer = document.querySelector('.video-container');
 const CHANNEL_ID = "UC8fkwsjcI_MhralEX1g4OBw"; // Canal "CreativeCode"
-const API_KEY = "AIzaSyDSJlCgtlsv4L6Ge49FNjJPxAWy-Y--GNE";
+const API_KEY = "AIzaSyC0GyhRxe-DYmppser-Qpp3H33FF25yLfM";
 const videosToShow = 449;
 
 const video_http = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${videosToShow}`;
@@ -53,12 +53,42 @@ const makeVideoCard = (data) => {
 
 // search bar
 
-const searchInput = document.querySelector('.search-bar');
-const searchBtn = document.querySelector('.search-btn');
-const searchLink = "https://www.youtube.com/results?search_query=";
-
-searchBtn.addEventListener('click', () => {
-    if(searchInput.value.length){
-        location.href = searchLink + encodeURIComponent(searchInput.value);
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const searchBtn = document.querySelector('searchBtn');
+    const searchInput = document.querySelector('searchInput');
+    const resultsContainer = document.querySelector('video-container');
+    const channelId = "UC8fkwsjcI_MhralEX1g4OBw"; // Reemplaza con el ID del canal
+    
+    searchBtn.addEventListener('click', () => {
+        const searchQuery = encodeURIComponent(searchInput.value);
+        const apiUrl = `URL_DEL_API_DE_BUSQUEDA?channel=${channelId}&query=${searchQuery}`;
+        
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                resultsContainer.innerHTML = ""; // Limpia resultados anteriores
+                
+                data.forEach(video => {
+                    const videoCard = document.createElement('div');
+                    videoCard.className = 'video-card';
+                    
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = video.thumbnail;
+                    thumbnail.alt = video.title;
+                    thumbnail.className = 'video-thumbnail';
+                    
+                    const title = document.createElement('h3');
+                    title.textContent = video.title;
+                    
+                    videoCard.appendChild(thumbnail);
+                    videoCard.appendChild(title);
+                    
+                    resultsContainer.appendChild(videoCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+            });
+    });
 });
+

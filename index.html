@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube Clone</title>
+    <title>Youtube Pirata</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -19,7 +19,7 @@
         <img src="img/logo.PNG" class="logo" alt="">
         <div class="search-box">
             <input type="text" class="b-search" placeholder="search">
-            <button class="search-btn"><img src="img/search.PNG" alt=""></button>
+            <a class="search-btn"><img src="img/search.PNG" alt=""></a>
         </div>
         <div class="op-user">
             <img src="img/video.PNG" class="icon" alt="">
@@ -75,6 +75,18 @@
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $(".filters").on("mousewheel", function(event) {
+        event.preventDefault();
+        const delta = event.originalEvent.deltaY;
+        const scrollAmount = 100; 
+    
+        $(this).scrollTop($(this).scrollTop() + delta * scrollAmount);
+      });
+    });
+    </script>
     
 </body>
 </html>
