@@ -27,7 +27,7 @@ body {
 }
 
 .b-search {
-    width: 100%;
+    width: 70%;
     padding-left: 10px;
     border-radius: 20px;
     background-color: #d8d8d8;
@@ -46,8 +46,7 @@ body {
     width: 100%;
     padding-left: 0px;
     display: flex;
-    flex-wrap: wrap; /* Cambio: Permite que los videos se coloquen debajo si no caben en la misma fila */
-    justify-content: space-around;
+    flex-wrap: wrap; 
     gap: 10px;
 }
 
