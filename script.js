@@ -49,8 +49,13 @@ const makeVideoCard = (data) => {
         </div>
     </div>
     `;
+    storeVideoData(data.id.videoId,data.snippet.title)
 }
 
+function storeVideoData(videoId, title) {
+    sessionStorage.setItem('selectedVideo', JSON.stringify({ videoId, title }));
+    console.log(videoId)
+}
 // search bar
 
 const searchInput = document.querySelector('.b-search');
